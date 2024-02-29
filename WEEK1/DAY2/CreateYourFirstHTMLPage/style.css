@@ -1,0 +1,27 @@
+.h3_Media {
+    text-align: center;
+}
+
+.image {
+    border: 5px solid red;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    height: 300px;
+}
+
+.section_border {
+    text-align: center;
+    border: 1px solid red;
+    color: red;
+}
+
+th, td {
+    border: 1px solid black;
+}
+
+.table_content {
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -1,0 +1,36 @@
+body {
+    margin: 0%;
+}
+
+.pt-sans narrow-regular {
+    font-family: "PT Sans Narrow", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+img {
+    width: 400px;
+    height: 350px;
+}
+
+.block {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.div {
+    width: 400px;
+    height: 450px;
+    padding: 20px;
+    margin: 0%;
+    text-align: center;
+}
+
+button {
+    padding: 15px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid lightgray;
+    border-radius: 4px;
+}

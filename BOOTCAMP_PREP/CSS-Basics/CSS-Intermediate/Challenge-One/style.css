@@ -1,0 +1,30 @@
+#wrap {
+    background-color: rgb(54, 54, 102);
+    width: 800px;
+    height: 500px;
+}
+
+#nav {
+    background-color: rgb(166, 202, 255);
+    float: left;
+    height: 405px;
+    margin-left: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#content {
+    background-color: rgb(94, 136, 199);
+    margin-left: 150px;
+    margin-right: 50px;
+    text-align: center;
+}
+
+.div_ul {
+    list-style-type: none;
+}
+
+.copyright {
+    background-color: rgb(54, 54, 102);
+}
+

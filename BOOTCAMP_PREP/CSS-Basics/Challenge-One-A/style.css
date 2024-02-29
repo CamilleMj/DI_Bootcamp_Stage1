@@ -1,0 +1,17 @@
+body {
+    background-color: rgb(227, 172, 124);
+}
+
+#wrap {
+    border-style:dotted;
+    background-color: antiquewhite;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}

@@ -1,0 +1,36 @@
+body {
+    background-color: rgb(185, 81, 81);
+    margin: 0%;
+}
+
+nav {
+    background-color: rgb(185, 81, 81);
+    padding: 30px;
+}
+
+a {
+    float: right;
+    display: block;
+    color: #000000;
+    text-align: center;
+    padding: 5px;
+    margin: 0%;
+    text-decoration: none;
+  }
+
+.container {
+    text-align: center;
+    margin: 200px;
+    padding: 30px;
+}
+
+input {
+    padding: 12px 50px;
+    border-radius: 4px;
+}
+
+
+footer {
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,132 @@
+body, html {
+    height: 100%;
+  }
+
+body {
+    background-image: url(https://user-images.githubusercontent.com/30896388/168069577-2f570d08-61d3-49d8-b7dd-c4b9192aaf68.jpg);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.logo {
+    float: left;
+    position: fixed;
+    width: 50px;
+}
+
+ul {
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow:hidden;
+    background-color: black;
+    position: sticky;
+
+  }
+  
+li {
+    float: right;
+  }
+  
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+.div_content {
+    position: relative;
+}
+
+h1 {
+    position: absolute;
+    padding-top: 400px;
+    padding-left: 100px;
+    font-size: 100px;
+    font-style: oblique;
+    font-family:monospace;
+    text-align: center;
+    text-decoration: underline;
+    color: rgb(0, 0, 0);
+}
+
+p {
+    position: absolute;
+    padding-top: 590px;
+    padding-left: 10px;
+    font-size: 18px;
+    font-family:monospace;
+    text-align: left;
+    color: rgb(255, 255, 255);
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+/*MEDIUM*/
+@media screen and (min-width: 768px) {
+  .h1 {
+    font-size: 25px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .ul {
+    background-color: rgb(179, 255, 179);
+    color: rgb(0, 0, 0);
+  }
+}
+
+/*SMALL*/
+@media screen and (min-width: 600px) {
+  .h1 {
+    font-size: 35px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .ul {
+    background-color: rgb(255, 255, 61);
+    color: rgb(0, 0, 0);
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .div_content {
+    position: relative;
+  }
+}
+
+/*LARGE*/
+@media screen and (min-width: 992px) {
+  .ul {
+    background-color: rgb(255, 70, 70);
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .div_content {
+    display: flex;
+  }
+}
+
+/*EXTRA LARGE*/
+@media screen and (min-width: 1200px) {
+  .ul {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+  }
+}
