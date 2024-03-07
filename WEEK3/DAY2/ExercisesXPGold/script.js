@@ -5,7 +5,19 @@ console.log(sentence);
 
 /*Exercise 2 : Mixup*/
 
-var str1 = "mix";
-var str2 = "pod";
-Text.slice str1(0);
-Text.slice str2(0);
+const str1 = "mix";
+const str2 = "pod";
+
+console.log(text.slice (0,1));
+
+
+/*Exercise 3 : Calculator*/
+
+var firstNumber = prompt("Enter a Value", "0");
+var num1 = parseFloat(firstNumber);
+
+
+var secondNumber = prompt("Enter a Value", "0");
+var num2 = parseFloat(secondNumber);
+
+alert(num1 + num2);
