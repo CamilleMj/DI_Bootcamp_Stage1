@@ -1,0 +1,42 @@
+#myDiv {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    background-color: #ffffff;
+    padding: 5px;
+}
+
+#colorPalette {
+  display: grid; 
+  grid-template-columns: 0.4fr 0.4fr 0.4fr; 
+  grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr; 
+  grid-template-areas: 'myArea myArea myArea';
+  padding: 5px;
+}
+
+#myButton {
+    grid-area: myArea;
+}
+
+.square {
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+    margin: 1px;
+    border: 1px solid rgb(126, 126, 126);
+}
+
+#blankSquares {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    width:1000px;
+    height:550px;
+    border: 1px solid #000000;;
+}
+
+.newSquares {
+    width: auto;
+    height: auto;
+    border: 1px solid #ffffff;
+    background-color: #3b3b3b97;
+}
