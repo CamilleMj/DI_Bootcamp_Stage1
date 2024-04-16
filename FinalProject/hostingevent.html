@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mea+Culpa&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <title>Create Event</title>
+</head>
+<body>
+
+    <div class="form">
+        <form>
+
+            <div class="form_username">
+                <label for="user">Username</label>
+              <br>
+                <input type="text" id="user" name="user" placeholder="Username" required>
+            </div>
+
+            <div class="form_date">
+               <div>
+                  <label for="date">Date</label>
+              <br>
+                  <input type="date" id="date" name="date" required>
+               </div>
+
+               <div>
+                  <label for="appt">Time</label>
+              <br>
+                  <input type="time" id="appt" name="appt" required>
+               </div>
+            </div>
+
+            <div class="form_location">
+                <label for="location">Location</label>
+              <br>
+                <input type="text" id="locality" name="location" placeholder="Location" required>
+            </div>
+
+            <div class="form_textarea">
+                <textarea name="message" rows="8" cols="48" id=area required>
+                    Description
+                </textarea>
+            </div>
+
+            <div class="form_category">
+                <label for="location">Category</label>
+                <input list="category" name="category" required>
+                <datalist id="category">
+                <option value="Edge">
+                <option value="Firefox">
+                <option value="Chrome">
+                <option value="Opera">
+                <option value="Safari">
+                </datalist>
+            </div>
+
+            <div class="form_upload">
+               <label for="myfile">Upload a picture</label>
+              <br>
+               <input type="file" id="myfile" name="myfile">
+            </div>
+
+            <div class="submit">
+                <input type="submit" value="Create !">
+            </div>
+        </form>
+    </div>
+    
+</body>
+</html>
