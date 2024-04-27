@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Form</title>
+</head>
+<body>
+    <h1>Task List</h1>
+  <ul id="taskList"></ul>
+
+  <script>
+    let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+    const taskList = document.getElementById('taskList');
+
+    function calculateRemainingDays(task) {
+      const today = new Date();
+      const daysLeft = Math.ceil((task.endDateTime - today) / (1000 * 60 * 60 * 24));
+      return daysLeft;
+    }
+
+    function sortByStartDate(tasks) {
+      return tasks.sort((a, b) => a.startDateTime - b.startDateTime);
+    }
+
+    function toggleDescription(event) {
+      const description = event.target.nextElementSibling;
+      description.style.display = description.style.display === 'none' ? 'block' : 'none';
+    }
+
+    function toggleCompletionStatus(event) {
+      const checkbox = event.target;
+      const listItem = checkbox.parentElement;
+      const taskId = parseInt(listItem.getAttribute('data-task-id'));
+      tasks[taskId].isCompleted = checkbox.checked;
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+      updateTaskDisplay();
+    }
+
+    function deleteTask(event) {
+      if (confirm("Are you sure you want to delete this task?")) {
+        const button = event.target;
+        const listItem = button.parentElement;
+        const taskId = parseInt(listItem.getAttribute('data-task-id'));
+        tasks.splice(taskId, 1);
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+        updateTaskDisplay();
+      }
+    }
+
+    function editTask(event) {
+      const button = event.target;
+      const listItem = button.parentElement;
+      const taskId = parseInt(listItem.getAttribute('data-task-id'));
+      const taskToEdit = tasks[taskId];
+      const newName = prompt("Enter the new name for the task:", taskToEdit.name);
+      if (newName !== null) {
+        taskToEdit.name = newName;
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+        updateTaskDisplay();
+      }
+    }
+
+    function updateTaskDisplay() {
+      taskList.innerHTML = '';
+      const sortedTasks = sortByStartDate(tasks);
+      sortedTasks.forEach((task, index) => {
+        const listItem = document.createElement('li');
+        listItem.setAttribute('data-task-id', index);
+        listItem.style.color = task.isCompleted ? 'green' : task.endDateTime < new Date() ? 'red' : 'black';
+        listItem.innerHTML = `
+          <strong>Name:</strong> ${task.name}<br>
+          <strong>Starting Date:</strong> ${task.startDateTime.toLocaleDateString()}
+          <br>
+          <strong>Days Left:</strong> ${calculateRemainingDays(task)}
+          <br>
+          <button onclick="toggleDescription(event)">Show Description</button>
+          <div style="display:none;">
+            <strong>Description:</strong> ${task.description}
+          </div>
+          <br>
+          <input type="checkbox" ${task.isCompleted ? 'checked' : ''} onchange="toggleCompletionStatus(event)"> Completed
+          <button onclick="deleteTask(event)">X</button>
+          <button onclick="editTask(event)">Edit</button>
+          <br><br>
+        `;
+        taskList.appendChild(listItem);
+      });
+    }
+
+    updateTaskDisplay();
+  </script>
+
+</body>
+</html>
