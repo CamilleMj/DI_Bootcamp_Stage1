@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Project - Random Quote Generator</title>
+</head>
+<body>
+
+    <section id="quote-section"></section>
+    <button id="myButton">Generate Quote</button>
+    <button id="charCount">Characters with spaces</button>
+    <button id="charCountNoSpace">Characters without spaces</button>
+    <button id="wordCount">Number of words</button>
+    <button id="likeButton">Like</button>
+
+    <form id="addQuoteForm">
+        <label for="quote">Quote:</label><br>
+        <input type="text" id="quote" name="quote"><br>
+        <label for="author">Author:</label><br>
+        <input type="text" id="author" name="author">
+        <button type="submit">Add Quote</button>
+    </form>
+
+    <form id="filterForm">
+        <label for="authorFilter">Filter by Author:</label><br>
+        <input type="text" id="authorFilter" name="authorFilter">
+        <button type="button" id="filterButton">Filter</button>
+        <button type="button" id="prevButton">Previous</button>
+        <button type="button" id="nextButton">Next</button>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>
