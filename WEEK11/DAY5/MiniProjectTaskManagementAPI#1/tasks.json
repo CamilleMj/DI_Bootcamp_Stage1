@@ -1,0 +1,17 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Empty Array Task",
+            "type": "shell",
+            "command": "echo",
+            "args": ["[]"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ],
+    "id": [
+    ]
+}

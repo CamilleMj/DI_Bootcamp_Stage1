@@ -1,10 +1,15 @@
+const newTasks = [
+  { id: 1, name: "iPhone"},
+  { id: 2, name: "iPad"},
+  { id: 3, name: "iWatch"},
+];
+module.exports = newTasks;
+
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
-
-// Your routes will go here
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
@@ -12,8 +17,5 @@ app.listen(PORT, () => {
 
 const tasksRouter = require('./routes/tasks');
 
-// ...
-
-// Use the tasks router
 app.use('/tasks', tasksRouter);
 
