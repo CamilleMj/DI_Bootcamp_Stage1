@@ -1,3 +1,5 @@
+//EXERCISE XP
+
 // import React from 'react';
 
 // function App() {
@@ -38,17 +40,29 @@
 
 // App.js
 
+// import React from 'react';
+// import Exercise from './Exercise3';
+
+// function App() {
+//   return (
+//     <div className="App">
+//       <Exercise />
+//     </div>
+//   );
+// }
+
+// export default App;
+
+//DAILY CHALLENGE
 import React from 'react';
-import Exercise from './Exercise3'; // Import Exercise component
+import DemoCarousel from './DailyChallenge';
 
 function App() {
   return (
     <div className="App">
-      <Exercise />
+      <DemoCarousel />
     </div>
   );
 }
 
 export default App;
-
-
