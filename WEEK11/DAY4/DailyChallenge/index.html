@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Challenge</title>
+</head>
+<body>
+
+    <div id="game-container">
+        <h1>Guess the Emoji</h1>
+        <div id="emoji-display"></div>
+        <div id="options"></div>
+        <div id="feedback"></div>
+    </div>
+
+    <script>
+        async function loadNewEmoji() {
+          const response = await fetch('/game');
+          const { emoji, options } = await response.json();
+    
+          document.getElementById('emoji-display').innerText = emoji;
+    
+          const optionsContainer = document.getElementById('options');
+          optionsContainer.innerHTML = '';
+          options.forEach(option => {
+            const button = document.createElement('button');
+            button.innerText = option;
+            button.onclick = () => checkGuess(option);
+            optionsContainer.appendChild(button);
+          });
+        }
+    
+        async function checkGuess(guessedName) {
+          const response = await fetch('/guess', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ guessedName, correctName: document.getElementById('emoji-display').innerText })
+          });
+          const { correct } = await response.json();
+    
+          const feedback = document.getElementById('feedback');
+          feedback.innerText = correct ? 'Correct!' : 'Incorrect! Try again.';
+          setTimeout(() => {
+            feedback.innerText = '';
+            loadNewEmoji();
+          }, 2000);
+        }
+    
+        window.onload = loadNewEmoji;
+      </script>
+    
+</body>
+</html>
