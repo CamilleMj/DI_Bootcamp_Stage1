@@ -4,42 +4,23 @@ from rest_framework.response import Response
 from rest_framework import status
 from .models import Student
 from .serializers import StudentSerializer
+from rest_framework import generics
+from django.utils.timezone import make_aware
 
 # Create your views here.
-class StudentListView(APIView):
-    def get(self, request):
-        students = Student.objects.all()
-        serializer = StudentSerializer(students, many=True)
-        return Response(serializer.data)
+class StudentListView(generics.ListCreateAPIView):
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
 
-    def post(self, request):
-        serializer = StudentSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        date_joined = self.request.query_params.get('date_joined')
 
-class StudentDetailView(APIView):
-    def get_object(self, pk):
-        try:
-            return Student.objects.get(pk=pk)
-        except Student.DoesNotExist:
-            return Response(status=status.HTTP_404_NOT_FOUND)
+        if date_joined:
+            # Convert date_joined to a datetime object (adjust timezone if needed)
+            date_joined_dt = make_aware(date_joined)  # Example: '2024-08-01T00:00:00Z'
 
-    def get(self, request, pk):
-        student = self.get_object(pk)
-        serializer = StudentSerializer(student)
-        return Response(serializer.data)
+            # Filter students by date_joined
+            queryset = queryset.filter(date_joined=date_joined_dt)
 
-    def put(self, request, pk):
-        student = self.get_object(pk)
-        serializer = StudentSerializer(student, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-    def delete(self, request, pk):
-        student = self.get_object(pk)
-        student.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        return queryset
