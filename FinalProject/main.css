@@ -101,6 +101,7 @@ input[type=submit] {
     cursor: pointer;
 }
 
+/*CREATE/SEARCH EVENT PAGE*/
 #date, #appt {
     margin-right: 40px;
     padding-left: 32px;
@@ -124,4 +125,11 @@ input[list=category] {
     padding-right: 160px;
 }
 
-/*REGISTER PAGE/LOGIN*/
+/*SEARCH PAGE*/
+
+.results {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    color: #611c8c;
+}
