@@ -1,77 +1,3 @@
-// async function createEvent() {
-//     try {
-//         const response = await fetch('/events');
-//         const events = await response.json();
-
-//         const eventsList = document.getElementById('eventList');
-//         eventsList.innerHTML = '';
-
-//         events.forEach(event => {
-//             const listItem = document.createElement('li');
-
-//             if (event.image_url) {
-//                 const img = document.createElement('img');
-//                 img.src = event.image_url;
-//                 img.alt = 'Event Image';
-//                 img.style.width = '200px';
-//                 listItem.appendChild(img);
-//             }
-
-//             const text = document.createTextNode(`${event.event_date} - ${event.location}: ${event.description}`);
-//             listItem.appendChild(text);
-
-//             eventsList.appendChild(listItem);
-//         });
-//     } catch (error) {
-//         console.error('Error loading events:', error);
-//     }
-// }
-
-// window.onload = createEvent;
-
-// async function createEvent() {
-//     try {
-//         const response = await fetch('/events');
-//         const events = await response.json();
-
-//         const gallery = document.querySelector('.gallery');
-//         gallery.innerHTML = '';
-
-//         events.forEach(event => {
-//             const descDiv = document.createElement('div');
-//             descDiv.className = 'desc';
-
-//             if (event.image_url) {
-//                 const img = document.createElement('img');
-//                 img.src = event.image_url;
-//                 img.alt = 'Event Image';
-//                 descDiv.appendChild(img);
-//             }
-            
-//             const imageDiv = document.createElement('div');
-//             const text = document.createElement('p');
-//             imageDiv.className = 'hidden';
-//             text.textContent = `${event.event_date} - ${event.location}: ${event.description}`;
-//             descDiv.appendChild(text);
-
-//             function showStuff() {
-//                 let hidden = document.getElementsByClassName('hidden');
-//                 if (hidden.style.display == "none") {
-//                   hidden.style.display = "block"
-//                 } else {
-//                   hidden.style.display = "none"
-//                 }
-//               }
-
-//             gallery.appendChild(descDiv);
-//         });
-//     } catch (error) {
-//         console.error('Error loading events:', error);
-//     }
-// }
-
-// window.onload = createEvent;
-
 //Function to create an event and it appears on the homepage
 async function createEvent() {
     try {
@@ -134,12 +60,12 @@ window.onload = createEvent;
 
 async function loadEvents() {
     try {
-        const response = await fetch('/events'); // Ensure this endpoint is correct
+        const response = await fetch('/events');
         if (!response.ok) throw new Error('Network response was not ok');
         const events = await response.json();
 
         const gallery = document.querySelector('.gallery');
-        gallery.innerHTML = ''; // Clear existing content
+        gallery.innerHTML = '';
 
         events.forEach(event => {
             const eventElement = document.createElement('div');
